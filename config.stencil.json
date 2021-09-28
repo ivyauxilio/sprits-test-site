@@ -1,0 +1,10 @@
+{
+  "customLayouts": {
+    "brand": {},
+    "category": {},
+    "page": {},
+    "product": {}
+  },
+  "normalStoreUrl": "https://store.spirits.network",
+  "port": "3040"
+}

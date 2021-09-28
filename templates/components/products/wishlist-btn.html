@@ -1,0 +1,11 @@
+<form action="{{product.add_to_wishlist_url}}" class="form form-wishlist form-action" data-wishlist-add method="post">
+    <div class="content">
+        <input class="button {{#if this.num_items '!==' '0'}}button--has-items{{/if}}"
+        formaction="{{this.add_url}}&product_id={{../product.id}}"
+        type="hidden"
+        value="{{this.name}}">
+
+        <input type="image" name="submit" class="icons" src="{{cdn 'img/wishlist-white.png' }}" alt="Submit"/>
+        <p>Wishlist</p>
+    </div>
+</form>

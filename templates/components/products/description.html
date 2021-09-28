@@ -1,0 +1,29 @@
+{{#if product.description}}
+    <!-- <p class="productView-title">{{lang 'products.description'}}</p> -->
+    <div class="productView-description" {{#if settings.data_tag_enabled}} data-event-type="product" {{/if}}>
+        {{{product.description}}}
+    </div>
+{{/if}}
+
+{{#if product.warranty.off}}
+    <p class="productView-title">{{lang 'products.warranty'}}</p>
+    <div class="productView-description">
+        {{{product.warranty}}}
+        <!-- <ul>
+            <li>Images represent the intended product however, bottle designs, artwork, packaging and current batch release or proof may be updated from the producer
+                without notice. </li>
+            <li>You must be at least 21 years of age to purchase and receive wine and spirits. All deliveries require an adult signature and proof of age.
+            </li>
+            <li>
+                Unfortunately, due to laws/regulations we cannot deliver spirit/liquor products to any PO Box addresses or in some cases to all states, countries, or
+providences. We will inform you of the specific states, countries, and providences we cannot ship too once you provide your orders shipping address information. You will not be able to complete your purchase of spirit/liquor products if you enter a PO Box
+or are in one of those locations. 
+            </li>
+            <li>
+                CA Prop 65 Warning: Drinking distilled spirits, beer, coolers, wine, sand other alcoholic beverages may increase cancer risk, and, during pregnancy,
+can cause birth defects. For more information go to www.P65Warnings.ca.gov
+            </li>
+            <li>This product is not eligible for return.</li>
+        </ul> -->
+    </div>
+{{/if}}

@@ -1,0 +1,37 @@
+ <div class="container-icons">
+
+    <form class="form form-action" method="post" action="{{product.cart_url}}" enctype="multipart/form-data">
+        <div class="content">
+            <input type="hidden" name="action" value="add">
+            <input type="hidden" name="product_id" value="{{product.id}}"/>
+            <input type="image" name="submit" class="icons" src="{{cdn 'img/quick-white.png' }}" alt="Submit"/>
+            <p>Quick Buy</p>
+        </div>
+    </form>
+
+    
+    <form class="form form-action" method="post" action="{{product.cart_url}}" enctype="multipart/form-data" data-cart-item-add target="_self"> 
+            <input type="hidden" name="action" value="add">
+            <input type="hidden" name="product_id" value="{{product.id}}"/>
+            {{> components/products/add-to-cart}}
+    </form>
+
+    {{> components/products/wishlist-btn}}
+
+
+    <form class="form form-action" method="" action="" enctype="multipart/form-data" >
+        <div class="content">
+            <input type="image" name="submit" class="icons" src="{{cdn 'img/locker-white.png' }}" alt="Submit"/>
+            <p>Locker</p>
+        </div>
+    </form>
+
+
+    <form class="form form-action" method="" action="" enctype="multipart/form-data" >
+        <div class="content">
+            <input type="image" name="submit" class="icons" src="{{cdn 'img/share-white.png'}}" alt="Submit"/>
+            <p>Sharer</p>
+          </div>
+    </form>
+
+</div>

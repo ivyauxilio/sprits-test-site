@@ -1,0 +1,112 @@
+{{#if banners.bottom}}
+{{#if settings.data_tag_enabled}}
+<div class="banners" data-banner-location="bottom">
+    {{#each (limit banners.bottom_metadata 1)}}
+    <div class="banner" data-event-type="promotion" data-entity-id="{{this.id}}" data-name="{{this.banner-name}}"
+        data-position="{{this.location}}" data-name="{{this.banner-name}}">
+        <div data-event-type="promotion-click">
+            {{{this.content}}}
+        </div>
+    </div>
+    {{/each}}
+</div>
+{{else}}
+<div class="banners" data-banner-location="bottom">
+    <div class="banner">
+        {{{limit banners.bottom 1}}}
+    </div>
+</div>
+{{/if}}
+
+{{/if}}
+<footer class="footer" role="contentinfo">
+    <h2 class="footer-title-sr-only">{{lang 'footer.title'}}</h2>
+    <div class="container">
+        {{#if theme_settings.social_icon_placement_bottom '!==' 'bottom_none'}}
+        <article
+            class="footer-info-col
+                footer-info-col--social
+                footer-info-col--{{#if theme_settings.social_icon_placement_bottom '===' 'bottom_left'}}left{{else}}right{{/if}}"
+            data-section-type="footer-webPages">
+            <h3 class="footer-info-heading">{{lang 'social.connect'}}</h3>
+            {{> components/common/social-links}}
+        </article>
+        {{/if}}
+        <section class="footer-info">
+            <article class="footer-info-col" data-section-type="newsletterSubscription">
+                {{#if settings.show_newsletter_box}}
+                {{> components/common/subscription-form}}
+                {{/if}}
+                {{> components/common/payment-icons}}
+                <div class="hr-footer"></div>
+                
+            </article>
+            <article class="footer-info-col footer-center" data-section-type="newsletterSubscription">
+                <h3 class="footer-info-heading">
+                    Download Our App
+                </h3>
+                <div class="app-links">
+                    <ul class="app-links-list">
+                        <li>
+                            <a href="https://apps.apple.com/us/app/spirits-network/id1457825709#?platform=iphone" target="_blank"><img src="https://cdn11.bigcommerce.com/s-16016y5xwm/product_images/uploaded_images/app-store.png" /></a>
+                        </li>
+                        <li>
+                            <a href="https://apps.apple.com/us/app/spirits-network/id1457825709#?platform=appleTV" target="_blank"><img src="https://cdn11.bigcommerce.com/s-16016y5xwm/product_images/uploaded_images/apple-tv.png" /></a>
+                        </li>
+                        <li>
+                            <a href="https://play.google.com/store/apps/details?id=com.nbtv.spiritsnetwork" target="_blank"><img src="https://cdn11.bigcommerce.com/s-16016y5xwm/product_images/uploaded_images/google-play.png" /></a>
+                        </li>
+                    </ul>            
+                </div>
+            </article>
+            <article class="footer-info-col footer-info-col--small" data-section-type="footer-webPages">
+                <h3 class="footer-info-heading">{{lang 'footer.connect'}}</h3>
+                <ul class="footer-info-list">
+                    <li>
+                        <a href="https://www.linkedin.com/company/spirits-network/" target="_blank">LINKEDIN</a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/spiritsnetwork/" target="_blank">INSTAGRAM</a>
+                    </li>
+                    <li>
+                        <a href="https://twitter.com/spirits_network/" target="_blank">TWITTER</a>
+                    </li>
+                    <li>
+                        <a href="https://www.facebook.com/spiritsnetwork/" target="_blank">FACEBOOK</a>
+                    </li>
+                </ul>
+            </article>
+        </section>
+        {{#if settings.paypal_commerce_credit_message}}
+        <div class="footer-copyright">
+            <p class="paypal-credit">{{nl2br settings.paypal_commerce_credit_message}}</p>
+        </div>
+        {{/if}}
+        <div class="footer-copyright">
+            <ul class="footer-info-links">
+                <li>
+                    <a href="/">&copy; 2021 Spirits Network </a>
+                </li>
+                <li>
+                    <a href="/faq/">FAQ</a>
+                </li>
+                <li>
+                    <a href="/terms/">Terms</a>
+                </li>
+                <li>
+                    <a href="/privacy/">Privacy</a>
+                </li>
+                <li>
+                    <a href="https://spiritsnetwork.com/#/contact-us">Contact Us</a>
+                </li>
+                <li>
+                    <a href="/availability/">Availability</a>
+                </li>
+            </ul>
+        </div>
+        {{#if theme_settings.show_copyright_footer}}
+       
+        {{/if}}
+    </div>
+    {{{region name="ssl_site_seal--global"}}}
+</footer>

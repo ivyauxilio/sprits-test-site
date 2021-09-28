@@ -1,0 +1,22 @@
+<ul class="navPages-list">
+    <li class="navUser-item navPages-item-page">
+        {{#if customer}}
+        <a class="navPages-action user-login" href="{{urls.account.index}}" aria-label="{{lang 'common.account'}}">
+            {{lang 'common.account'}}
+        </a>
+        <a class="navPages-action user-signup" href="{{urls.auth.logout}}" aria-label="{{lang 'common.logout'}}">
+            {{lang 'common.logout'}}
+        </a>
+        {{else}}
+        <a class="navPages-action user-login" href="{{urls.auth.login}}" aria-label="{{lang 'common.login'}}">
+            {{lang 'common.login'}}
+        </a>
+        {{#if settings.account_creation_enabled}}
+        <a class="navPages-action user-signup" href="{{urls.auth.create_account}}"
+            aria-label="{{lang 'common.sign_up'}}">
+            {{lang 'common.sign_up'}}
+        </a>
+        {{/if}}
+        {{/if}}
+    </li>
+</ul>

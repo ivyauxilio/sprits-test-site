@@ -4,7 +4,10 @@
             <th class="cart-header-item" colspan="2">{{lang 'cart.checkout.item'}}</th>
             <th class="cart-header-item">{{lang 'cart.checkout.price'}}</th>
             <th class="cart-header-item cart-header-quantity">{{lang 'cart.checkout.quantity'}}</th>
+            <th class="cart-header-item">Size</th>
+            <th class="cart-header-item"></th>
             <th class="cart-header-item">{{lang 'cart.checkout.total'}}</th>
+            <th class="cart-header-item" style="width: 50px;"></th>
         </tr>
     </thead>
     <tbody class="cart-list">
@@ -28,7 +31,8 @@
                         }}
                     {{/if}}
                 </td>
-                <td class="cart-item-block cart-item-title">
+                <!-- <td class="cart-item-block cart-item-title"> -->
+                <td class="cart-item-block cart-item-info">
                     {{#if brand.name}}
                         <p class="cart-item-brand">{{brand.name}}</p>
                     {{/if}}
@@ -39,20 +43,19 @@
                         <p>({{release_date}})</p>
                     {{/if}}
 
-                    {{#if options}}
+                    <!-- {{#if options}}
                         <dl class="definitionList">
-                            {{#each options}}
-                                <dt class="definitionList-key">{{name}}:</dt>
-                                <dd class="definitionList-value">
-                                    {{#if is_file}}
-                                        <a href="/viewfile.php?attributeId={{id}}&cartitem={{../id}}">{{value}}</a>
-                                    {{else}}
-                                        {{{ sanitize value}}}
-                                    {{/if}}
-                                </dd>
-                            {{/each}}
-                        </dl>
-
+                        {{#each options}}
+                            <dt class="definitionList-key">{{name}}:</dt>
+                            <dd class="definitionList-value">
+                                {{#if is_file}}
+                                    <a href="/viewfile.php?attributeId={{id}}&cartitem={{../id}}">{{value}}</a>
+                                {{else}}
+                                    {{{ sanitize value}}}
+                                {{/if}}
+                            </dd>
+                        {{/each}}
+                    </dl>
                         <a href="#"
                            data-item-edit="{{id}}"
                            data-product-id="{{product_id}}"
@@ -60,9 +63,10 @@
                         >
                             {{lang 'common.change'}}
                         </a>
-                    {{/if}}
+                    {{/if}} -->
 
                     {{#if type '==' 'GiftCertificate'}}
+                    
                         <a href="{{edit_url}}"
                            aria-label="{{lang 'cart.gift_certificates.change_gift_certificate' certificate_name=name}}"
                         >
@@ -97,21 +101,15 @@
 
                 <td class="cart-item-block cart-item-info cart-item-quantity">
 
-                    <label class="form-label cart-item-label" for="qty-{{id}}">{{lang 'products.quantity'}}</label>
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                          <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="sr-only">Toggle Dropdown</span>
-                          </button>
-                          <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                            <div role="separator" class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Separated link</a>
-                          </div>
-                        </div>
-                      </div>
+                    <label class="form-label cart-item-label {{id}}" for="qty-{{id}}">{{lang 'products.quantity'}}</label>
+
+                    <div class="" data-product-attribute="set-select" style="width: 60px;">
+                    
+                        <select class="form-select form-select--small" name="qty-{{id}}" id="qty-{{id}}" {{#if required}}required{{/if}}>
+                            <option value="{{quantity}}">{{quantity}}</option>
+                        </select>
+                    </div>
+             
                     <!-- <div class="form-increment">
                         {{#if can_modify}}
                             <button class="button button--icon"
@@ -151,7 +149,26 @@
                     </div> -->
 
                 </td>
-
+                <td class="cart-item-block cart-item-info cart-item-quantity">
+                    <div class="" data-product-attribute="set-select" style="width: 100px;">
+                        {{#each options}}
+                            {{#if is_file}}
+                                <a href="/viewfile.php?attributeId={{id}}&cartitem={{../id}}">{{value}}</a>
+                             {{else}}
+                                <select class="form-select form-select--small" name="qty-{{id}}" id="qty-{{id}}" {{#if required}}required{{/if}}>
+                                    <option value="{{quantity}}">{{sanitize value}}</option>
+                                </select>
+                            {{/if}}
+                        {{/each}}
+                    </div>
+                   
+                </td>
+                <td class="cart-item-block cart-item-info">
+                    <div class="form-field">
+                        <input type="checkbox" class="checkbox" name="locker" id="locker">
+                        <label>Add to Locker</label>
+                    </div>
+                </td>    
                 <td class="cart-item-block cart-item-info">
                     <span class="cart-item-label">{{lang 'cart.checkout.total'}}</span>
                     {{#or ../customer (if ../theme_settings.restrict_to_login '!==' true)}}
@@ -163,14 +180,25 @@
                         {{> components/common/login-for-pricing}}
                     {{/or}}
                     {{#or can_modify (if type '==' 'GiftCertificate')}}
-                        <button class="cart-remove icon"
-                                data-cart-itemid="{{id}}"
-                                data-confirm-delete="{{lang 'cart.confirm_delete'}}"
-                                aria-label="{{lang 'cart.remove_item' name=name}}"
-                        >
-                            <svg><use xlink:href="#icon-close"></use></svg>
-                        </button>
                     {{/or}}
+                </td>
+                <td class="cart-item-block cart-item-info">
+                    
+                    <button class="cart-remove-btn"
+                    data-cart-itemid="{{id}}"
+                    data-confirm-delete="{{lang 'cart.confirm_delete'}}"
+                    aria-label="{{lang 'cart.remove_item' name=name}}"
+                    >
+                    <!-- <button class="cart-remove icon"
+                            data-cart-itemid="{{id}}"
+                            data-confirm-delete="{{lang 'cart.confirm_delete'}}"
+                            aria-label="{{lang 'cart.remove_item' name=name}}"
+                    > -->
+                    Remove
+                        <!-- <svg><use xlink:href="#icon-close"></use></svg> -->
+                    </button>
+                    <button class="cart-remove-btn">Save</button>
+                    <button class="cart-remove-btn">Duplicate</button>
                 </td>
             </tr>
         {{/each}}

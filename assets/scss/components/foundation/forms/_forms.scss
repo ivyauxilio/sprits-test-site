@@ -12,7 +12,9 @@
     background-position: $select-backgroundPosition;
     border-radius: $select-borderRadius;
     padding: $select-padding;
-
+    background-color: black;
+    color: white;
+    border-color: #ad976e;
     &:hover {
         border-color: $select-hover-borderColor;
     }

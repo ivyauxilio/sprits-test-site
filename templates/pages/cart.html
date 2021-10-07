@@ -6,10 +6,10 @@ cart: true
 {{inject 'invalidEntryMessage' (lang 'cart.invalid_entry_message')}}
 <div class="page">
 
-    <div class="page-content" data-cart>
+    <div class="page-content" style="margin-top: 5rem;" data-cart>
         {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
 
-        {{> components/cart/page-title}}
+        <!-- {{> components/cart/page-title}} -->
 
         <div data-cart-status>
             {{> components/cart/status-messages}}

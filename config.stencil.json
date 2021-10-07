@@ -2,9 +2,14 @@
   "customLayouts": {
     "brand": {},
     "category": {},
-    "page": {},
-    "product": {}
+    "page": {
+      "profile.html":"/profile/"
+    },
+    "product": {
+      "_customPage.html":"/custom-product-page/"
+    }
   },
+  "apiHost": "https://api.bigcommerce.com",
   "normalStoreUrl": "https://store.spirits.network",
   "port": "3040"
 }

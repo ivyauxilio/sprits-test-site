@@ -14,7 +14,117 @@
     }
 }
 
+//wishlist
 
+.profile-top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 238px;
+    margin-bottom: 50px;
+    margin-top: 55px;
+    background: url('../img/bg-md.jpeg');
+    // background: url(https://cdn11.bigcommerce.com/s-ux754wdw72/stencil/adde4bf0-0503-013a-757b-32ede3865cdc/e/18751720-a77d-0139-048d-5a7398253c37/img/bg-md.jpeg) no-repeat;
+    background-size: 100% 100%;
+
+    .profile-top-inner{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+
+        .profile-info{
+            margin-right: 120px;
+            max-width: 160px;
+            text-align: center;
+            img{
+                display: inline-block;
+                margin-bottom: 14px;
+                border-radius: 50%;
+                width: 114px;
+                height: 114px;
+                background-size: cover;
+                position: relative;
+            }
+        }
+        .profile-counters{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .profile-counter{
+                margin-right: 80px;
+                text-align: center;
+                .profile-counter-value{
+                    font-size: 18px;
+                    font-weight: 700;
+                    margin-bottom: 6px;
+                }
+                .profile-secondary-block{
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: space-around;
+
+                    .profile-counter-label{
+                        font-size: 12px;
+                        font-weight: 500;
+                        color: #8D7A59;
+                    }
+                }
+            }
+        }
+    }
+}
+.profile__tabs{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 60px;
+    .profile__tab {
+        display: flex;
+        align-items: center;
+        margin-right: 46px;
+        font-size: 15.5px;
+        color: #fff;
+        cursor: pointer;
+        padding-bottom: 8px;
+        border-bottom: 2px solid transparent;
+        text-transform: uppercase;
+
+        .profile__tab-icon {
+            height: 25px;
+            margin-right: 7px;
+        }
+    }
+}
+
+.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+  }
+.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+  }
+  .tab button:hover {
+    background-color: #ddd;
+  }
+  
+  .tab button.active {
+    background-color: #ccc;
+  }  
+  .tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border-top: none;
+  }
 // Account headings
 // -----------------------------------------------------------------------------
 

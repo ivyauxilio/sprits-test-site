@@ -1,0 +1,158 @@
+{{#partial "page"}}
+
+    <div class="profile-top">
+        <div class="profile-top-inner">
+            <div class="profile-info">
+                <img class="" src="{{cdn 'img/user-avatar.svg'}}" alt="hey">
+                <div class="profile-name">
+
+                </div>
+                <div class="avatar-link pointer">
+                    Edit profile 
+                </div>
+            </div>
+            <div class="profile-counters">
+                <div class="profile-counter">
+                    <div class="profile-counter-value">Loyalty Points</div>
+                    <div class="profile-secondary-block">
+                        <span class="profile-counter-label pointer">View</span>
+                        <span class="profile-counter-label pointer">Redeem</span></div>
+                </div>
+                <div class="profile-counter">
+                    <div class="profile-counter-value">Beginner</div>
+                    <div class="profile-secondary-block">
+                        <span class="profile-counter-label pointer">Update Status</span>
+                    </div>
+                </div>
+                <div class="profile-counter">
+                    <div class="profile-counter-value">Subscriptions</div>
+                    <div class="profile-secondary-block">
+                        <span class="profile-counter-label pointer">Add</span>
+                        <span class="profile-counter-label pointer">Manage</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="profile__tabs">
+        <div class="profile__tab">
+            <a class="tablinks" onclick="openCity(event, 'Profile')">
+                <span class="profile__tab-icon">
+                    <img class="" src="{{cdn 'img/profile.svg'}}" alt="hey"/>
+                </span>
+                <span>Profile</span>
+           </a>
+        </div>
+        <div class="profile__tab">
+            <a class="tablinks" onclick="openCity(event, 'Account')">
+                <span class="profile__tab-icon">
+                    <img class="" style="height: 30px;" src="{{cdn 'img/settings.svg'}}" alt="settings"/>
+                </span>
+                <span>Account</span>
+            </a>
+        </div>
+        <div class="profile__tab" >
+            <a class="tablinks" onclick="openCity(event, 'Favorites')">
+                <span class="profile__tab-icon">
+                    <img class="" style="height: 30px;" src="{{cdn 'img/favorite.svg'}}" alt="hey">
+                </span>
+                <span>Favorites</span>
+            </a>
+        </div>
+        <div class="profile__tab is-active" >
+            <a class="tablinks" onclick="openCity(event, 'Wishlist')">
+                <span class="profile__tab-icon">
+                    <img class="" src="{{cdn 'img/wishlist.svg'}}" alt="hey">   
+                </span>
+                    <span>Wishlist</span>
+                </div>
+            </a>
+        <div class="profile__tab">
+            <a class="tablinks" onclick="openCity(event, 'Locker')">
+                <span class="profile__tab-icon">
+                    <img class="" src="{{cdn 'img/locker.svg'}}" alt="hey">      
+                </span>
+                <span>Locker</span>
+            </a>
+        </div>
+    </div>
+
+    <div id="Wishlist" class="tabcontent">
+        <div class="account" data-pagination-wishlist>
+
+            {{#if wishlist.is_editable}}
+                {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+            {{/if}}
+            <h2 class="page-heading">{{lang 'account.wishlists.view_heading' name=wishlist.name}}</h2>
+            {{#if wishlist.is_editable}}
+                {{> components/account/navigation account_page='wishlists'}}
+            {{/if}}
+        
+            {{#if wishlist.is_editable}}
+                {{#if wishlist.is_public '>' 0}}
+                    <div class="panel share-wishlist">
+                        <div class="panel-body">
+                            <h5>{{lang 'account.wishlists.share_intro'}}</h5>
+                            <input class="form-input" value="{{settings.base_url}}{{wishlist.share_url}}" readonly>
+                        </div>
+                    </div>
+                {{/if}}
+            {{/if}}
+        
+            {{#if wishlist.items}}
+                {{> components/account/wishlist-item-list show_remove=wishlist.is_editable}}
+            {{else}}
+                {{> components/common/alert/alert-info (lang 'account.wishlists.empty_wishlist')}}
+            {{/if}}
+        
+        </div>
+    </div>
+
+    <div id="Favorites">
+        <p>Add your Favorite videos.</p>
+    </div>
+
+    <div id="Locker" class="tabcontent">
+        <p>It looks like you have no items in your virtual locker. Browse Spirits Network and select something that intrigues you.</p>
+    </div>
+    <!-- <div class="tab">
+        <button class="tablinks" onclick="openCity(event, 'London')">London</button>
+        <button class="tablinks" onclick="openCity(event, 'Paris')">Paris</button>
+        <button class="tablinks" onclick="openCity(event, 'Tokyo')">Tokyo</button>
+      </div>
+
+      <div id="London" class="tabcontent">
+        <h3>London</h3>
+        <p>London is the capital city of England.</p>
+      </div>
+      
+      <div id="Paris" class="tabcontent">
+        <h3>Paris</h3>
+        <p>Paris is the capital of France.</p> 
+      </div>
+      
+      <div id="Tokyo" class="tabcontent">
+        <h3>Tokyo</h3>
+        <p>Tokyo is the capital of Japan.</p>
+      </div> -->
+
+      <script>
+        function openCity(evt, cityName) {
+          var i, tabcontent, tablinks;
+          tabcontent = document.getElementsByClassName("tabcontent");
+          for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+          }
+          tablinks = document.getElementsByClassName("tablinks");
+          for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+          }
+          document.getElementById(cityName).style.display = "block";
+          evt.currentTarget.className += " active";
+        }
+        </script>
+           
+
+    {{/partial}}
+    {{> layout/base}}

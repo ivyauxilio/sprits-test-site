@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="43px" height="43px" viewBox="0 0 43 43" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 54.1 (76490) - https://sketchapp.com -->
+    <title>One Star</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <polygon id="path-1" points="0 0 43 0 43 42.9996 0 42.9996"></polygon>
+    </defs>
+    <g id="Status-Stars" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Web---Profile" transform="translate(-5.000000, -3.000000)">
+            <g id="One-Star" transform="translate(5.000000, 3.000000)">
+                <g id="Group-3">
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <g id="Clip-2"></g>
+                    <path d="M43,21.4996 C43,33.3746 33.374,42.9996 21.5,42.9996 C9.626,42.9996 0,33.3746 0,21.4996 C0,9.6256 9.626,-0.0004 21.5,-0.0004 C33.374,-0.0004 43,9.6256 43,21.4996" id="Fill-1" fill="#AC966D" mask="url(#mask-2)"></path>
+                </g>
+                <polygon id="Fill-4" fill="#FEFEFE" points="24.9092 16.7105 34.0422 17.3145 27.0282 23.1945 29.2762 32.0655 21.5162 27.2135 13.7732 32.0925 15.9912 23.2135 8.9582 17.3565 18.0892 16.7225 21.4842 8.2245"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>
